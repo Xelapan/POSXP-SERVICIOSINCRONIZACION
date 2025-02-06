@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<js2>
+    
+    <property>
+        <key>url</key>
+        <value>192.168.101.100/posii</value>
+    </property>
+
+    <property>
+        <key>usuario</key>
+        <value>C!Uk!G</value>
+    </property>
+
+    <property>
+        <key>pass</key>
+        <value>vUjYUmPCue1</value>
+    </property>
+
+   
+    <property>
+        <key>Tienda</key>
+        <value>101CAF</value>
+    </property>
+
+    
+    <property>
+        <key>PathBackup</key>
+        <value>/home/samuel/Dropbox/</value>
+    </property>
+
+   
+
+</js2>
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-pos" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/pos"/>
+        <property name="wsdl-pos" location="xml-resources/web-service-references/pos/wsdl/mix.xelapan.com_55/pos.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/pos" destdir="${build.generated.dir}/jax-wsCache/pos" wsdl="${wsdl-pos}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://mix.xelapan.com:55/pos.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-pos}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/pos"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/pos">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-pos" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/pos"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+    </target>
+    <target name="wsimport-client-sumacorte" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/sumacorte"/>
+        <property name="wsdl-sumacorte" location="xml-resources/web-service-references/sumacorte/wsdl/mix.xelapan.com_55/sumacorte.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/sumacorte" destdir="${build.generated.dir}/jax-wsCache/sumacorte" wsdl="${wsdl-sumacorte}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://mix.xelapan.com:55/sumacorte.asmx?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${wsdl-sumacorte}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/sumacorte"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/sumacorte">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-sumacorte" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/sumacorte"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/org/tempuri"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-pos, wsimport-client-sumacorte"/>
+</project>

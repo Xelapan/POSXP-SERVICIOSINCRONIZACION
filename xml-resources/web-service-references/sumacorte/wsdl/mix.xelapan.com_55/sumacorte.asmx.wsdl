@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Actualizar">
+        <s:complexType />
+      </s:element>
+      <s:element name="ActualizarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ActualizarResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Consulta">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConsultaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConsultaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtenerClientesPos">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtenerClientesPosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtenerClientesPosResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ActualizarSoapIn">
+    <wsdl:part name="parameters" element="tns:Actualizar" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSoapIn">
+    <wsdl:part name="parameters" element="tns:Consulta" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClientesPosSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtenerClientesPos" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerClientesPosSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtenerClientesPosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="sumacorteSoap">
+    <wsdl:operation name="Actualizar">
+      <wsdl:input message="tns:ActualizarSoapIn" />
+      <wsdl:output message="tns:ActualizarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Consulta">
+      <wsdl:input message="tns:ConsultaSoapIn" />
+      <wsdl:output message="tns:ConsultaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientesPos">
+      <wsdl:input message="tns:ObtenerClientesPosSoapIn" />
+      <wsdl:output message="tns:ObtenerClientesPosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="sumacorteSoap" type="tns:sumacorteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Actualizar">
+      <soap:operation soapAction="http://tempuri.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consulta">
+      <soap:operation soapAction="http://tempuri.org/Consulta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientesPos">
+      <soap:operation soapAction="http://tempuri.org/ObtenerClientesPos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="sumacorteSoap12" type="tns:sumacorteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Actualizar">
+      <soap12:operation soapAction="http://tempuri.org/Actualizar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Consulta">
+      <soap12:operation soapAction="http://tempuri.org/Consulta" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerClientesPos">
+      <soap12:operation soapAction="http://tempuri.org/ObtenerClientesPos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="sumacorte">
+    <wsdl:port name="sumacorteSoap" binding="tns:sumacorteSoap">
+      <soap:address location="http://mix.xelapan.com:55/sumacorte.asmx" />
+    </wsdl:port>
+    <wsdl:port name="sumacorteSoap12" binding="tns:sumacorteSoap12">
+      <soap12:address location="http://mix.xelapan.com:55/sumacorte.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
