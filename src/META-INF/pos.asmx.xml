@@ -1261,10 +1261,10 @@
   </wsdl:binding>
   <wsdl:service name="Pos">
     <wsdl:port name="PosSoap" binding="tns:PosSoap">
-      <soap:address location="http://190.56.93.90:55/pos.asmx" />
+      <soap:address location="https://ws.xelapan.net/pos.asmx" />
     </wsdl:port>
     <wsdl:port name="PosSoap12" binding="tns:PosSoap12">
-      <soap12:address location="http://190.56.93.90:55/pos.asmx" />
+      <soap12:address location="https://ws.xelapan.net/pos.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
