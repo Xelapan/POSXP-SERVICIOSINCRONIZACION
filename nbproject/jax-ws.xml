@@ -3,8 +3,8 @@
   <services/>
   <clients>
     <client name="pos">
-      <wsdl-url>http://mix.xelapan.com:55/pos.asmx?WSDL</wsdl-url>
-      <local-wsdl-file>mix.xelapan.com_55/pos.asmx.wsdl</local-wsdl-file>
+      <wsdl-url>https://ws.xelapan.net/pos.asmx?WSDL</wsdl-url>
+      <local-wsdl-file>ws.xelapan.net/pos.asmx.wsdl</local-wsdl-file>
       <package-name>org.tempuri</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://mix.xelapan.com:55/pos.asmx?WSDL</wsimport-option-value>
+          <wsimport-option-value>https://ws.xelapan.net/pos.asmx?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -35,8 +35,8 @@
       </wsimport-options>
     </client>
     <client name="sumacorte">
-      <wsdl-url>http://mix.xelapan.com:55/sumacorte.asmx?WSDL</wsdl-url>
-      <local-wsdl-file>mix.xelapan.com_55/sumacorte.asmx.wsdl</local-wsdl-file>
+      <wsdl-url>https://ws.xelapan.net/sumacorte.asmx?WSDL</wsdl-url>
+      <local-wsdl-file>ws.xelapan.net/sumacorte.asmx.wsdl</local-wsdl-file>
       <package-name>org.tempuri</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
@@ -54,7 +54,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>http://mix.xelapan.com:55/sumacorte.asmx?WSDL</wsimport-option-value>
+          <wsimport-option-value>https://ws.xelapan.net/sumacorte.asmx?WSDL</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>

@@ -4,4 +4,7 @@
     <system systemId="http://190.56.93.90:55/sumacorte.asmx?WSDL" uri="wsdl/190.56.93.90_55/sumacorte.asmx.wsdl"/>
     <system systemId="http://mix.xelapan.com:55/sumacorte.asmx?WSDL" uri="wsdl/mix.xelapan.com_55/sumacorte.asmx.wsdl"/>
     <system systemId="http://mix.xelapan.com:55/pos.asmx?WSDL" uri="wsdl/mix.xelapan.com_55/pos.asmx.wsdl"/>
+    <system systemId="http://ws.xelapan.net/pos.asmx?WSDL" uri="wsdl/ws.xelapan.net/pos.asmx.wsdl"/>
+    <system systemId="https://ws.xelapan.net/pos.asmx?WSDL" uri="wsdl/ws.xelapan.net/pos.asmx.wsdl"/>
+    <system systemId="https://ws.xelapan.net/sumacorte.asmx?WSDL" uri="wsdl/ws.xelapan.net/sumacorte.asmx.wsdl"/>
 </catalog>

@@ -1,0 +1,41 @@
+# =====================
+# Builds / outputs (Ant/NetBeans)gs
+# =====================
+build/
+#dist/
+out/
+
+# =====================
+# NetBeans
+# =====================
+nbproject/private/
+nbproject/build-impl.xml
+nbproject/genfiles.properties
+nbproject/private.xml
+
+# =====================
+# Subversion metadata 
+# =====================
+.svn/
+
+# =====================
+# Logs / temporales
+# =====================
+*.log
+*.tmp
+*~
+*.swp
+*.bak
+
+# =====================
+# Sistema Operativo
+# =====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =====================
+# Java compilado
+# =====================
+*.class
+

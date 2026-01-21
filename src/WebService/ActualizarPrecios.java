@@ -308,7 +308,12 @@ public class ActualizarPrecios {
 
                 jArray = (JsonArray) parser.parse(s).getAsJsonObject().get("opcion");
                 for (JsonElement obj : jArray) {
+                    
                     Opcion cse = gson.fromJson(obj, Opcion.class);
+                    int y = 0;
+                    if (cse.idarticulopadre.equals("f402c9a6-5fce-490c-a7b1-e4fa5d74246d"))
+                        y = 1;
+                    
                     int existe = Integer.valueOf(Main.conexion.EjecutarEscalar("select count(*)  from pos_opcion where idopcion = '" + cse.idopcion + "' "));
                     //  String qry = "";
                     if (cse.idarticulopadre.equals("")) {

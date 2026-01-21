@@ -18,8 +18,8 @@
     </target>
     <target name="wsimport-client-pos" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/pos"/>
-        <property name="wsdl-pos" location="xml-resources/web-service-references/pos/wsdl/mix.xelapan.com_55/pos.asmx.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/pos" destdir="${build.generated.dir}/jax-wsCache/pos" wsdl="${wsdl-pos}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://mix.xelapan.com:55/pos.asmx?WSDL" xnocompile="true" xendorsed="true">
+        <property name="wsdl-pos" location="xml-resources/web-service-references/pos/wsdl/ws.xelapan.net/pos.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/pos" destdir="${build.generated.dir}/jax-wsCache/pos" wsdl="${wsdl-pos}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://ws.xelapan.net/pos.asmx?WSDL" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-pos}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/pos"/>
         </wsimport>
@@ -35,8 +35,8 @@
     </target>
     <target name="wsimport-client-sumacorte" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/sumacorte"/>
-        <property name="wsdl-sumacorte" location="xml-resources/web-service-references/sumacorte/wsdl/mix.xelapan.com_55/sumacorte.asmx.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/sumacorte" destdir="${build.generated.dir}/jax-wsCache/sumacorte" wsdl="${wsdl-sumacorte}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://mix.xelapan.com:55/sumacorte.asmx?WSDL" xnocompile="true" xendorsed="true">
+        <property name="wsdl-sumacorte" location="xml-resources/web-service-references/sumacorte/wsdl/ws.xelapan.net/sumacorte.asmx.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/sumacorte" destdir="${build.generated.dir}/jax-wsCache/sumacorte" wsdl="${wsdl-sumacorte}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="https://ws.xelapan.net/sumacorte.asmx?WSDL" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-sumacorte}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/sumacorte"/>
         </wsimport>

@@ -128,10 +128,10 @@
   </wsdl:binding>
   <wsdl:service name="sumacorte">
     <wsdl:port name="sumacorteSoap" binding="tns:sumacorteSoap">
-      <soap:address location="http://mix.xelapan.com:55/sumacorte.asmx" />
+      <soap:address location="https://ws.xelapan.net/sumacorte.asmx" />
     </wsdl:port>
     <wsdl:port name="sumacorteSoap12" binding="tns:sumacorteSoap12">
-      <soap12:address location="http://mix.xelapan.com:55/sumacorte.asmx" />
+      <soap12:address location="https://ws.xelapan.net/sumacorte.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

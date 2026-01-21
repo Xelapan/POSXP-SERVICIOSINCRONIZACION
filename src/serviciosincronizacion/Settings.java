@@ -102,8 +102,9 @@ public class Settings {
     
     public void llenarDiasSincronizar(){
         try{
-        DiasSincronizar = Integer.valueOf(Main.conexion.EjecutarEscalar("select valor from sys_configuracion where idconfiguracion ='f5f27293-7838-11e5-be93-94de80fadb93' "));
+        DiasSincronizar = Double.valueOf(Main.conexion.EjecutarEscalar("select valor from sys_configuracion where idconfiguracion ='f5f27293-7838-11e5-be93-94de80fadb93' ")).intValue();
         }catch(NumberFormatException x){
+            System.out.print("Fallo en Consulta: "+x.toString());
             DiasSincronizar = 3;
         }
     

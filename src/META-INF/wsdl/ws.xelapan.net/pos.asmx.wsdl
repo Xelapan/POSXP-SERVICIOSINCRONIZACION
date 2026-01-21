@@ -257,21 +257,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="ObtenerLlamadas">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="fechaDe" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="fechaA" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="ObtenerLlamadasResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="ObtenerLlamadasResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="ObtenerTotalFacturaManual">
         <s:complexType>
           <s:sequence>
@@ -539,12 +524,6 @@
   <wsdl:message name="InsertarRequisicionSoapOut">
     <wsdl:part name="parameters" element="tns:InsertarRequisicionResponse" />
   </wsdl:message>
-  <wsdl:message name="ObtenerLlamadasSoapIn">
-    <wsdl:part name="parameters" element="tns:ObtenerLlamadas" />
-  </wsdl:message>
-  <wsdl:message name="ObtenerLlamadasSoapOut">
-    <wsdl:part name="parameters" element="tns:ObtenerLlamadasResponse" />
-  </wsdl:message>
   <wsdl:message name="ObtenerTotalFacturaManualSoapIn">
     <wsdl:part name="parameters" element="tns:ObtenerTotalFacturaManual" />
   </wsdl:message>
@@ -687,10 +666,6 @@
     <wsdl:operation name="InsertarRequisicion">
       <wsdl:input message="tns:InsertarRequisicionSoapIn" />
       <wsdl:output message="tns:InsertarRequisicionSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerLlamadas">
-      <wsdl:input message="tns:ObtenerLlamadasSoapIn" />
-      <wsdl:output message="tns:ObtenerLlamadasSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="ObtenerTotalFacturaManual">
       <wsdl:input message="tns:ObtenerTotalFacturaManualSoapIn" />
@@ -903,15 +878,6 @@
     </wsdl:operation>
     <wsdl:operation name="InsertarRequisicion">
       <soap:operation soapAction="http://tempuri.org/InsertarRequisicion" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ObtenerLlamadas">
-      <soap:operation soapAction="http://tempuri.org/ObtenerLlamadas" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1192,15 +1158,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ObtenerLlamadas">
-      <soap12:operation soapAction="http://tempuri.org/ObtenerLlamadas" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ObtenerTotalFacturaManual">
       <soap12:operation soapAction="http://tempuri.org/ObtenerTotalFacturaManual" style="document" />
       <wsdl:input>
@@ -1303,10 +1260,10 @@
   </wsdl:binding>
   <wsdl:service name="Pos">
     <wsdl:port name="PosSoap" binding="tns:PosSoap">
-      <soap:address location="http://mix.xelapan.com:55/pos.asmx" />
+      <soap:address location="https://ws.xelapan.net/pos.asmx" />
     </wsdl:port>
     <wsdl:port name="PosSoap12" binding="tns:PosSoap12">
-      <soap12:address location="http://mix.xelapan.com:55/pos.asmx" />
+      <soap12:address location="https://ws.xelapan.net/pos.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

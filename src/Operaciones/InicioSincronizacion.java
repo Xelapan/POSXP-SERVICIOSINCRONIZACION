@@ -26,6 +26,14 @@ public class InicioSincronizacion {
     }
 
     public void inicio() {
+        
+        try {
+                P.ActualizarCatalogos();
+                System.out.println("FIN Sincronizacion actualizar catalogos");
+            } catch (Exception x) {
+                System.out.println("Error actualizar catalogos " + x.toString());
+            }
+
         try {
             try {
                 c.EnviarCorteFinal();
