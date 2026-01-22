@@ -20,7 +20,7 @@ public class Main {
     public static Settings settings;
     public static Conexion conexion;
     public static ServerSocket b;
-    public static String version = "Sincronizacion. ws.06112025";
+    public static String version = "Sincronizacion. ws.22012026";
     private static String MensajeFel = "";
     private InicioSincronizacion inicio;
 
