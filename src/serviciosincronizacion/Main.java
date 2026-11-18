@@ -20,7 +20,7 @@ public class Main {
     public static Settings settings;
     public static Conexion conexion;
     public static ServerSocket b;
-    public static String version = "Sincronizacion. ws.xelapan.net.20042026";
+    public static String version = "BC 01102026";
     private static String MensajeFel = "";
     private InicioSincronizacion inicio;
 

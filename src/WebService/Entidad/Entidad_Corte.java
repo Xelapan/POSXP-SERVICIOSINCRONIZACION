@@ -5,7 +5,6 @@
  */
 package WebService.Entidad;
 
-import WebService.Entidad.DetalleCorte;
 import java.util.List;
 
 /**
@@ -48,6 +47,27 @@ public class Entidad_Corte {
     private double BienesAnulados;
     private double ServiciosEmitidos;
     private double ServiciosAnulados;
+    
+    int Dynamics = 0;
+    int TipoSincronizacion = 0;
+
+    public int getTipoSincronizacion() {
+        return TipoSincronizacion;
+    }
+
+    public void setTipoSincronizacion(int TipoSincronizacion) {
+        this.TipoSincronizacion = TipoSincronizacion;
+    }
+
+    
+    public int getDynamics() {
+        return Dynamics;
+    }
+
+    public void setDynamics(int Dynamics) {
+        this.Dynamics = Dynamics;
+    }
+            
 
     public int getEsPanaderia() {
         return EsPanaderia;
@@ -156,8 +176,8 @@ public class Entidad_Corte {
         detalle = value;
     }
 
-    public void agregar(String id, double can) {
-        detalle.add(new DetalleCorte(id, can));
+    public void agregar(String id, double can, int enc, double precio) {
+        detalle.add(new DetalleCorte(id, can, enc, precio));
     }
 
     public String getIdResolucion() {

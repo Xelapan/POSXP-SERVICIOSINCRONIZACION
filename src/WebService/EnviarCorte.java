@@ -50,7 +50,7 @@ public class EnviarCorte {
 // <editor-fold defaultstate="collapsed" desc="Envia el corte Digial y consumos de cafeteria y panaderia">
     public void EnviarCorteFinal() {
         Hashtable ht = new Hashtable();
-        ResultSet rs = Main.conexion.EjecutarConsulta("select idcorte, fecha from pos_corte where date(fecha) between (DATE_SUB(curdate(), Interval " + Main.settings.getDiasSincronizar() + " day)) and   curdate()    and tipocorte = 'F' order by fecha desc;");
+        ResultSet rs = Main.conexion.EjecutarConsulta("select idcorte, fecha from pos_corte where date(fecha) between (DATE_SUB(curdate(), Interval 2 day)) and   curdate()    and tipocorte = 'F' order by fecha desc;");
         try {
             if (rs != null) {
                 while (rs.next()) {
@@ -307,13 +307,15 @@ public class EnviarCorte {
                 + "    (sum(art.cantidad)) cantidad,\n"
                 + "    art.nombre,\n"
                 + "    sum(art.monto) monto,\n"
-                + "    art.idarticulo    \n"
+                + "    art.idarticulo,    \n"
+                + "    art.Encabezado \n"
+                 + "   ,art.precio \n"
                 + " FROM \n"
                 + "    (SELECT DISTINCT \n"
                 + "        IFNULL(SUM(o.cantidad), 0) cantidad, \n"
                 + "            a.nombre, \n"
                 + "            ROUND(IFNULL(SUM(o.monto), 0), 2) Monto,\n"
-                + "            a.idarticulo \n"
+                + "            a.idarticulo  , 1 Encabezado, o.precio \n"
                 + "    FROM \n"
                 + "        pos_factura f \n"
                 + "    INNER JOIN pos_ordendetalle o ON f.idfactura = o.idfactura \n"
@@ -326,13 +328,15 @@ public class EnviarCorte {
                 + "            AND f.estado = 1 \n"
                 + "           " + transferido + "  "
                 + "            AND o.debaja is null"
-                + "     GROUP BY a.nombre , a.idarticulo \n"
+                + "     GROUP BY a.nombre , a.idarticulo, o.precio \n"
                 + "    \n"
                 + "    UNION ALL SELECT \n"
                 + "        COUNT(a.idarticulo) cantidad,\n"
                 + "            a.nombre,\n"
                 + "            (a.precio * COUNT(a.idarticulo)) Monto,\n"
-                + "            a.idarticulo \n"
+                + "            a.idarticulo, \n"
+                + "             0 Encabezado \n"
+                 + "           ,a.precio \n"
                 + "    FROM\n"
                 + "        pos_ordendetalledetalle det\n"
                 + "    INNER JOIN pos_opcion op ON det.idopcion = op.idopcion \n"
@@ -352,8 +356,8 @@ public class EnviarCorte {
                 + "            " + transferido + "  "
                 + "            AND od.debaja is null  "
                 + "            AND det.debaja is null "
-                + " GROUP BY a.idarticulo, a.nombre, a.precio) AS art "
-                + " GROUP BY art.idarticulo,art.nombre; ";
+                 + " GROUP BY a.idarticulo, a.nombre, a.precio) AS art "
+                + " GROUP BY art.idarticulo,art.nombre,  art.encabezado, art.precio;    ";
         return qry;
     }
 // </editor-fold>
@@ -500,6 +504,8 @@ public class EnviarCorte {
                     corte.setFaltante(rs.getDouble("faltante"));
                     corte.setUsuarioAutoriza(rs.getString("UsuarioAutoriza"));
                     corte.setEsPanaderia(rs.getInt("tienda"));
+                    corte.setDynamics(1);
+                    
                     existeCorte = true;
                 }
             }
@@ -601,7 +607,7 @@ public class EnviarCorte {
         // rs = Main.conexion.EjecutarConsulta(qryDetalle(corte.getDel(), corte.getAl(), corte.getEsPanaderia(), corte.getIdDocumento()));
         try {
             while (rs.next()) {//             
-                DetalleCorte _detalle = new DetalleCorte(rs.getString("idarticulo"), rs.getDouble("cantidad"));
+                DetalleCorte _detalle = new DetalleCorte(rs.getString("idarticulo"), rs.getDouble("cantidad"), rs.getInt("Encabezado"),rs.getDouble("precio"));
                 det.add(_detalle);
             }
             corte.setDetalle(det);
@@ -621,8 +627,11 @@ public class EnviarCorte {
                 System.out.println("Es parcial cafeteria  ");
             } else {
                 Gson gson = new Gson();
-                String json = gson.toJson(corte);
-                Mensaje = saldoTienda(json);
+                if (corte.getIdResolucion().equals("a771c032-8845-11e3-820b-76245230fa58")){
+                    String json = gson.toJson(corte);
+                    
+                    Mensaje = saldoTienda(json);
+                }
                 if (!Mensaje.equals("")) {
                     System.out.println("Error  " + Mensaje);
                 } else {
@@ -695,7 +704,7 @@ public class EnviarCorte {
 // <editor-fold defaultstate="collapsed" desc="Enviar Tiempo de Certificacion"> 
     public void EnviarTiempoCertificacion() {
         try {
-            for (int x = 0; x <= Main.settings.getDiasSincronizar(); x++) {
+            for (int x = 0; x <=50; x++) {
                 ResultSet rs = Main.conexion.EjecutarConsulta("SELECT \n"
                         + "	day(f.fecha) dia,\n"
                         + "    month(f.fecha) mes,\n"
@@ -755,6 +764,7 @@ public class EnviarCorte {
                     String json = gson.toJson(clientes);
                     insertarTiempoCertificacion(json);
                     clientes = new ArrayList<>();
+                    Thread.sleep(5000);
                 }
             }
         } catch (Exception x) {

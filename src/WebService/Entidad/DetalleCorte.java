@@ -12,8 +12,10 @@ import java.util.List;
  * @author samuel
  */
 public class DetalleCorte {
-    String idArticulo;
-    double Cantidad;    
+    private String idArticulo;
+    private double Cantidad;    
+    private int Encabezado = 0;
+    private double Precio;  
     private List<DetalleDetalleCorte> detalledetalle;
     private DetalleDetalleCorte detdet;
     public DetalleCorte(){
@@ -24,9 +26,11 @@ public class DetalleCorte {
         this.detalledetalle = detalle;
     }   
 
-    public DetalleCorte(String id, double can) {
+     public DetalleCorte(String id, double can, int encabezado, double precio) {
         idArticulo = id;
         Cantidad = can;
+        Encabezado = encabezado;
+        Precio = precio;
     }
     
      public List<DetalleDetalleCorte> getDetalle() {
@@ -40,4 +44,37 @@ public class DetalleCorte {
     public void agregar(String id, double can) {
         detalledetalle.add(new DetalleDetalleCorte(id, can));
     }
+
+    public String getIdArticulo() {
+        return idArticulo;
+    }
+
+    public void setIdArticulo(String idArticulo) {
+        this.idArticulo = idArticulo;
+    }
+
+    public double getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(double Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+    public int getEncabezado() {
+        return Encabezado;
+    }
+
+    public void setEncabezado(int Encabezado) {
+        this.Encabezado = Encabezado;
+    }
+    
+       public double getPrecio() {
+        return Precio;
+    }
+
+    public void setPrecio(double Precio) {
+        this.Precio = Precio;
+    }
+    
 }
